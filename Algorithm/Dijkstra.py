@@ -11,8 +11,10 @@
 #set distances from starting vertex to the rest to infinite, distance is a list to store that
 #FOR each edge(u,v) that only has one vertex in spGroup
 #    distance[v] = min(distance[u]+matrix[u][v], distance[v])
-#   
+#
 
+#print() function is not normally available as a built-in since the name "print" is recognized as the "print" statement.
+#To disable the statement and use the print() function
 from __future__ import print_function
 
 #N means the number of vertices
@@ -31,7 +33,7 @@ class Dijkstra:
         #self.matrix = []
         self.distance = []
         self.edges = []
-    
+
     def addEdges(self, u, v, weight):
         self.matrix[u][v] = weight
         self.matrix[v][u] = weight
@@ -46,19 +48,19 @@ class Dijkstra:
                     self.matrix[j][i] = self.matrix[i][j]
                     self.edge.append((i, j))
                     self.edge.append((j, i))
-    '''     
+    '''
     def shortestPathDijkstra(self, u):
         '''
         u: the starting vertex
         '''
         for i in range(N):
             self.distance.append(MAX)
-        
+
         spGroup = []
         spGroup.append(u)
         print(u)
         self.distance[u] = 0
-        
+
         while len(spGroup) != N:
             min_distance = MAX
             selected_vertex = u
@@ -84,7 +86,7 @@ class Dijkstra:
                     print("%s" % self.matrix[i][j], end = '\t')
             print("")
         print("shortest distance from %s: %s" % (u, self.distance))
-            
+
 graph = Dijkstra()
 graph.addEdges(0,1,4)
 graph.addEdges(0,7,8)
